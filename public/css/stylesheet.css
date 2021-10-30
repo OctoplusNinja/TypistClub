@@ -1,0 +1,102 @@
+body {
+	background-color: #f6eabe;
+	/* font-family: 'Fruktur', cursive; */
+	font-family: "Poppins", sans-serif;
+}
+
+*::selection {
+	background-color: #f9cf93;
+	color: black;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	color: #181219;
+}
+
+.nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #f6d7a7;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 75px;
+}
+
+.login-register {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	margin-right: 20px;
+	width: 200px;
+	font-size: 12px;
+}
+
+.nav > a > h1 {
+	font-family: "Fruktur", cursive;
+	letter-spacing: 0.5rem;
+	margin-left: 20px;
+}
+
+.main {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	font-family: "Zen Antique Soft", serif;
+	width: 100%;
+	padding-top: 100px;
+}
+
+.cap-main {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	font-family: "Zen Antique Soft", serif;
+	width: 100%;
+	padding-top: 100px;
+}
+
+.main > .mbody > p {
+	font-size: 50px;
+}
+
+.but {
+	font-family: "Zen Antique Soft", serif;
+	margin: 15px 0 0;
+	padding: 5px 10px;
+	background-color: #1c1f23;
+	color: #ffffff;
+	border: none;
+	outline: none;
+	border-radius: 10px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.btn-1 {
+	margin: 0;
+}
+
+.but:hover,
+.but:focus {
+	background-color: #2b2b2b;
+}
+
+.mimg {
+	max-width: 50%;
+}
+
+.options {
+	font-size: 20px;
+	font-family: "Poppins", sans-serif;
+	margin-top: 40px;
+}
+
+.ninja {
+	width: 20px;
+}
