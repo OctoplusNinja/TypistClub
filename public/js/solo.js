@@ -1,6 +1,6 @@
 const quotes = [
-	"Do not go gentle into that good night, Old age should burn and rave at close of day. Rage, rage against the dying of the light.",
-	"It is a good life we lead brother, the best, may it never change, and may it never change us",
+	"Do not go gentle into that good night, old age should burn and rave at close of day. Rage, rage against the dying of the light.",
+	"It is a good life we lead brother, the best, may it never change, and may it never change us.",
 	"Maybe someday I'll cry on your shoulders... Just hold me till the last drop of my tears drops! I don't know about the laugh, but you'll be the reason I'll smile again.",
 ];
 let words = [];
@@ -28,6 +28,11 @@ document.getElementById("start").addEventListener("click", () => {
 		console.log(wpm);
 		document.getElementById("wpm").innerText = wpm;
 	}, 1000);
+	document.getElementById("start").classList.remove("act");
+	document.getElementById("start").classList.add("nodisplay");
+	typedValueElement.classList.add("act");
+	typedValueElement.classList.remove("nodisplay");
+	typedValueElement.focus();
 });
 
 typedValueElement.addEventListener("input", () => {
@@ -63,11 +68,3 @@ typedValueElement.addEventListener("input", () => {
 	}
 	document.getElementById("wpm").innerText = wpm;
 });
-
-document.getElementById("start").onclick = function () {
-	document.getElementById("start").classList.remove("act");
-	document.getElementById("start").classList.add("nodisplay");
-	document.getElementById("typed-value").classList.add("act");
-	document.getElementById("typed-value").classList.remove("nodisplay");
-	document.getElementById("typed-value").focus();
-};
