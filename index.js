@@ -12,6 +12,10 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + "/public/index.html")
 });
 
+app.get('/solo', (req, res) => {
+    res.sendFile(__dirname + "/public/solo.html")
+});
+
 // io.on('connection', (socket) => {
 //     // console.log('A user connected');
 //     socket.on('disconnect', () => {
@@ -21,7 +25,6 @@ app.get('/', (req, res) => {
 //     socket.on('chat message', (msg) => {
 //         io.emit("chat message", msg);
 //     })
-
 // })
 
 server.listen(3000, () => {

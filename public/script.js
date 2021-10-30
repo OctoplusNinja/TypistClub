@@ -5,10 +5,12 @@ const quotes = [
 ];
 let words = [];
 let wordIndex = 0;
-let startTime = Date.now();
 const quoteElement = document.getElementById('quote');
 const messageElement = document.getElementById('message');
 const typedValueElement = document.getElementById('typed-value');
+var strted = false;
+var elapsedTime = 0;
+var wpm = 0;
 
 document.getElementById('start').addEventListener('click', () => {
 	const quoteIndex = Math.floor(Math.random() * quotes.length);
@@ -21,22 +23,33 @@ document.getElementById('start').addEventListener('click', () => {
 	messageElement.innerText = '';
 	typedValueElement.value = '';
 	typedValueElement.focus();
-	startTime = new Date().getTime();
+	setInterval(() => {
+		elapsedTime = new Date().getTime() - startTime;
+		wpm = Math.round(((wordIndex) / (elapsedTime / 60000)) * 100) / 100;
+		console.log(wpm);
+		document.getElementById('wpm').innerText = wpm;
+	}, 1000);
 });
 
 typedValueElement.addEventListener('input', () => {
+	if (!strted) {
+		strted = true;
+		startTime = new Date().getTime();
+	}
+	console.log(wpm);
 	const currentWord = words[wordIndex];
 	const typedValue = typedValueElement.value;
 	if (typedValue == currentWord && wordIndex === words.length - 1) {
-		const elapsedTime = new Date().getTime() - startTime;
-		const message = `You're WPM is ${words.length / (elapsedTime / (1000 * 60))}`;
+		quoteElement.children[wordIndex].className = '';
+		typedValueElement.value = '';
+		elapsedTime = new Date().getTime() - startTime;
+		wpm = Math.round((words.length / (elapsedTime / 60000)) * 100) / 100;
+		const message = `You're WPM is ${wpm}`;
 		messageElement.innerText = message;
 	} else if (typedValue.endsWith(' ') && typedValue.trim() === currentWord) {
 		typedValueElement.value = '';
+		quoteElement.children[wordIndex].className = '';
 		wordIndex++;
-		for (const wordElement of quoteElement.children) {
-			wordElement.className = '';
-		}
 		quoteElement.children[wordIndex].className = 'highlight';
 	} else if (currentWord.startsWith(typedValue)) {
 		typedValueElement.className = '';
@@ -45,4 +58,5 @@ typedValueElement.addEventListener('input', () => {
 		typedValueElement.className = 'error';
 		quoteElement.children[wordIndex].className = 'error';
 	}
+	document.getElementById('wpm').innerText = wpm;
 });
