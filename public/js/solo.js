@@ -8,9 +8,9 @@ let wordIndex = 0;
 const quoteElement = document.getElementById("quote");
 const messageElement = document.getElementById("message");
 const typedValueElement = document.getElementById("typed-value");
-var strted = false;
-var elapsedTime = 0;
-var wpm = 0;
+let strted = false;
+let elapsedTime = 0;
+let wpm = 0;
 
 document.getElementById("start").addEventListener("click", () => {
 	const quoteIndex = Math.floor(Math.random() * quotes.length);
@@ -26,12 +26,14 @@ document.getElementById("start").addEventListener("click", () => {
 		elapsedTime = new Date().getTime() - startTime;
 		wpm = Math.round((wordIndex / (elapsedTime / 60000)) * 100) / 100;
 		console.log(wpm);
-		document.getElementById("wpm").innerText = wpm;
+		document.getElementById("wpm").innerText = `Your current WPM is ${wpm}`;
 	}, 1000);
 	document.getElementById("start").classList.remove("act");
 	document.getElementById("start").classList.add("nodisplay");
 	typedValueElement.classList.add("act");
 	typedValueElement.classList.remove("nodisplay");
+	document.getElementById("wpm").classList.add("act");
+	document.getElementById("wpm").classList.remove("nodisplay");
 	typedValueElement.focus();
 });
 
@@ -47,13 +49,16 @@ typedValueElement.addEventListener("input", () => {
 		typedValueElement.value = "";
 		elapsedTime = new Date().getTime() - startTime;
 		wpm = Math.round((words.length / (elapsedTime / 60000)) * 100) / 100;
-		const message = `You're WPM is ${wpm}`;
+		const message = `Your WPM is ${wpm}`;
 		messageElement.innerText = message;
 		quoteElement.children[wordIndex].className = "";
 		document.getElementById("typed-value").classList.remove("act");
 		document.getElementById("typed-value").classList.add("nodisplay");
 		document.getElementById("start").classList.add("act");
 		document.getElementById("start").classList.remove("nodisplay");
+		quoteElement.innerHTML =
+			'<p>Woo-hoo <img src="assets/partying-face.png"}</p>';
+		document.getElementById("start").innerText = "Restart";
 	} else if (typedValue.endsWith(" ") && typedValue.trim() === currentWord) {
 		typedValueElement.value = "";
 		quoteElement.children[wordIndex].className = "";
@@ -66,5 +71,5 @@ typedValueElement.addEventListener("input", () => {
 		typedValueElement.className = "form-control form-control-lg is-invalid";
 		quoteElement.children[wordIndex].className = "error";
 	}
-	document.getElementById("wpm").innerText = wpm;
+	document.getElementById("wpm").innerText = `Your current WPM is ${wpm}`;
 });
