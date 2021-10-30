@@ -93,6 +93,7 @@ dist
 
 # Serverless directories
 .serverless/
+ngrok
 
 # FuseBox cache
 .fusebox/
