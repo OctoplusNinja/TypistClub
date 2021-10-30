@@ -12,8 +12,9 @@ body {
 * {
 	margin: 0;
 	padding: 0;
-	text-decoration: none;
+	text-decoration: none !important;
 	color: #181219;
+	outline: none;
 }
 
 .nav {
@@ -37,7 +38,7 @@ body {
 }
 
 .nav > a > h1 {
-	font-family: "Fruktur", cursive;
+	font-family: "Fruktur", cursive !important;
 	letter-spacing: 0.5rem;
 	margin-left: 20px;
 }
@@ -66,16 +67,16 @@ body {
 }
 
 .but {
-	font-family: "Zen Antique Soft", serif;
-	margin: 15px 0 0;
-	padding: 5px 10px;
-	background-color: #1c1f23;
-	color: #ffffff;
-	border: none;
-	outline: none;
-	border-radius: 10px;
-	font-size: 16px;
-	cursor: pointer;
+	font-family: "Zen Antique Soft", serif !important;
+	margin: 15px 0 0 !important;
+	padding: 5px 10px !important;
+	background-color: #1c1f23 !important;
+	color: #ffffff !important;
+	border: none !important;
+	outline: none !important;
+	border-radius: 10px !important;
+	font-size: 16px !important;
+	cursor: pointer !important;
 }
 
 .btn-1 {
@@ -84,7 +85,7 @@ body {
 
 .but:hover,
 .but:focus {
-	background-color: #2b2b2b;
+	background-color: #2b2b2b !important;
 }
 
 .mimg {
@@ -92,11 +93,51 @@ body {
 }
 
 .options {
-	font-size: 20px;
+	font-size: 30px;
 	font-family: "Poppins", sans-serif;
 	margin-top: 40px;
 }
 
 .ninja {
-	width: 20px;
+	width: 30px;
+}
+
+.solo {
+	cursor: pointer;
+	border: black solid 1px;
+	border-radius: 5px;
+	justify-content: center;
+	margin: 10px 0;
+	display: flex;
+	align-items: center;
+}
+
+div.nvn {
+	cursor: pointer;
+	border: black solid 1px;
+	border-radius: 5px;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+}
+
+.container {
+	margin-top: 100px;
+}
+
+.btn {
+	margin: 20px 0;
+	width: 100%;
+}
+
+.act {
+	display: block;
+}
+
+.nodisplay {
+	display: none;
+}
+
+#typed-value {
+	width: 100%;
 }
