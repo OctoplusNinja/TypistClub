@@ -22,6 +22,10 @@ document.getElementById('start').addEventListener('click', () => {
 	quoteElement.children[0].className = 'highlight';
 	messageElement.innerText = '';
 	typedValueElement.value = '';
+	document.getElementById("start").classList.remove("act");
+	document.getElementById("start").classList.add("nodisplay");
+	document.getElementById("typed-value").classList.add("act");
+	document.getElementById("typed-value").classList.remove("nodisplay");
 	typedValueElement.focus();
 	setInterval(() => {
 		elapsedTime = new Date().getTime() - startTime;
@@ -64,10 +68,3 @@ typedValueElement.addEventListener('input', () => {
 	}
 	document.getElementById('wpm').innerText = wpm;
 });
-
-document.getElementById("start").onclick = function () {
-	document.getElementById("start").classList.remove("act");
-	document.getElementById("start").classList.add("nodisplay");
-	document.getElementById("typed-value").classList.add("act");
-	document.getElementById("typed-value").classList.remove("nodisplay");
-};
