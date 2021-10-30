@@ -60,4 +60,5 @@ document.getElementById("start").onclick = function () {
 	document.getElementById("start").classList.add("nodisplay");
 	document.getElementById("typed-value").classList.add("act");
 	document.getElementById("typed-value").classList.remove("nodisplay");
+	document.getElementById("typed-value").focus();
 };
