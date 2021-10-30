@@ -1,14 +1,16 @@
 const quotes = [
-	"Do not go gentle into that good night, old age should burn and rave at close of day. Rage, rage against the dying of the light.",
-	"It is a good life we lead brother, the best, may it never change, and may it never change us.",
+	"Do not go gentle into that good night, Old age should burn and rave at close of day. Rage, rage against the dying of the light.",
+	"It is a good life we lead brother, the best, may it never change, and may it never change us",
 	"Maybe someday I'll cry on your shoulders... Just hold me till the last drop of my tears drops! I don't know about the laugh, but you'll be the reason I'll smile again.",
 ];
 let words = [];
 let wordIndex = 0;
-let startTime = Date.now();
 const quoteElement = document.getElementById("quote");
 const messageElement = document.getElementById("message");
 const typedValueElement = document.getElementById("typed-value");
+var strted = false;
+var elapsedTime = 0;
+var wpm = 0;
 
 document.getElementById("start").addEventListener("click", () => {
 	const quoteIndex = Math.floor(Math.random() * quotes.length);
@@ -20,31 +22,37 @@ document.getElementById("start").addEventListener("click", () => {
 	quoteElement.children[0].className = "highlight";
 	messageElement.innerText = "";
 	typedValueElement.value = "";
-	typedValueElement.focus();
-	startTime = new Date().getTime();
+	setInterval(() => {
+		elapsedTime = new Date().getTime() - startTime;
+		wpm = Math.round((wordIndex / (elapsedTime / 60000)) * 100) / 100;
+		console.log(wpm);
+		document.getElementById("wpm").innerText = wpm;
+	}, 1000);
 });
 
 typedValueElement.addEventListener("input", () => {
+	if (!strted) {
+		strted = true;
+		startTime = new Date().getTime();
+	}
+	console.log(wpm);
 	const currentWord = words[wordIndex];
 	const typedValue = typedValueElement.value;
 	if (typedValue == currentWord && wordIndex === words.length - 1) {
-		const elapsedTime = new Date().getTime() - startTime;
-		const message = `You're WPM is ${
-			words.length / (elapsedTime / (1000 * 60))
-		}`;
+		typedValueElement.value = "";
+		elapsedTime = new Date().getTime() - startTime;
+		wpm = Math.round((words.length / (elapsedTime / 60000)) * 100) / 100;
+		const message = `You're WPM is ${wpm}`;
 		messageElement.innerText = message;
 		quoteElement.children[wordIndex].className = "";
-
 		document.getElementById("typed-value").classList.remove("act");
 		document.getElementById("typed-value").classList.add("nodisplay");
 		document.getElementById("start").classList.add("act");
 		document.getElementById("start").classList.remove("nodisplay");
 	} else if (typedValue.endsWith(" ") && typedValue.trim() === currentWord) {
 		typedValueElement.value = "";
+		quoteElement.children[wordIndex].className = "";
 		wordIndex++;
-		for (const wordElement of quoteElement.children) {
-			wordElement.className = "";
-		}
 		quoteElement.children[wordIndex].className = "highlight";
 	} else if (currentWord.startsWith(typedValue)) {
 		typedValueElement.className = "form-control form-control-lg is-valid";
@@ -53,6 +61,7 @@ typedValueElement.addEventListener("input", () => {
 		typedValueElement.className = "form-control form-control-lg is-invalid";
 		quoteElement.children[wordIndex].className = "error";
 	}
+	document.getElementById("wpm").innerText = wpm;
 });
 
 document.getElementById("start").onclick = function () {
