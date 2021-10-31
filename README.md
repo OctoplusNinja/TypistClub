@@ -16,25 +16,25 @@ Video Link here. (Drag and drop)
 
 ## Screenshots
 
--   index.html
+- index.html
 
-    ![index](assets/index.png)
+  ![index](assets/index.png)
 
--   mode.html
+- mode.html
 
-    ![mode](assets/mode.png)
+  ![mode](assets/mode.png)
 
--   solo.html
+- solo.html
 
-    ![solo-start](assets/solo-start.png)
+  ![solo-start](assets/solo-start.png)
 
-    ![success](assets/success.png)
+  ![success](assets/success.png)
 
-    ![error](assets/error.png)
+  ![error](assets/error.png)
 
-    ![result](assets/result.png)
+  ![result](assets/result.png)
 
 ## Made by Blank Coders 💻
 
--   [Aniruddha Das](https://twitter.com/isthatAniruddha)
--   [Falguni Sarkar](https://twitter.com/isshefalguni)
+- [Aniruddha Das](https://twitter.com/isthatAniruddha)
+- [Falguni Sarkar](https://twitter.com/isshefalguni)

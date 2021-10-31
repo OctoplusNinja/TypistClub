@@ -27,6 +27,12 @@ app.get('/solo', (req, res) => {
 //     })
 // })
 
+app.get('1v1.html', (req, res) => {
+    console.log("1v1 reached");
+    res.sendFile(__dirname + "/public/1v1.html")
+    // res.send("Site Under Construction");
+});
+
 server.listen(3000, () => {
     console.log('Listening on port: 3000')
 })

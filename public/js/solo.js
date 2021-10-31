@@ -43,9 +43,9 @@ typedValueElement.addEventListener("input", () => {
 	if (!started) {
 		started = true;
 		startTime = new Date().getTime();
+		document.getElementById("wpm").innerText = `Your current WPM is ${wpm}`;
 	}
 	// console.log(wpm);
-	// document.getElementById('wpm').innerText = "WPM: " + wpm;
 	const currentWord = words[wordIndex];
 	const typedValue = typedValueElement.value;
 	if (typedValue == currentWord && wordIndex === words.length - 1) {
