@@ -12,7 +12,7 @@ Since pandemic everything is online and we genrally need to have high typing rat
 
 ## Hack we made 🚀
 
-Video Link here. (Drag and drop)
+Live demo [here](https://youtu.be/ems5yRUco2U).
 
 ## Screenshots
 
@@ -35,6 +35,10 @@ Video Link here. (Drag and drop)
   ![result](assets/result.png)
 
 ## Made by Blank Coders 💻
+
+
+
+
 
 - [Aniruddha Das](https://twitter.com/isthatAniruddha)
 - [Falguni Sarkar](https://twitter.com/isshefalguni)
