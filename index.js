@@ -15,6 +15,9 @@ app.get('/', (req, res) => {
 app.get('/solo', (req, res) => {
     res.sendFile(__dirname + "/public/solo.html")
 });
+app.get('/mode', (req, res) => {
+    res.sendFile(__dirname + "/public/mode.html")
+});
 
 // io.on('connection', (socket) => {
 //     // console.log('A user connected');
@@ -27,7 +30,7 @@ app.get('/solo', (req, res) => {
 //     })
 // })
 
-app.get('1v1.html', (req, res) => {
+app.get('/1v1', (req, res) => {
     console.log("1v1 reached");
     res.sendFile(__dirname + "/public/1v1.html")
     // res.send("Site Under Construction");

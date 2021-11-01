@@ -36,9 +36,5 @@ Live demo [here](https://youtu.be/ems5yRUco2U).
 
 ## Made by Blank Coders 💻
 
-
-
-
-
 - [Aniruddha Das](https://twitter.com/isthatAniruddha)
 - [Falguni Sarkar](https://twitter.com/isshefalguni)
