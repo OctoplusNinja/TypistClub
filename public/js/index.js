@@ -1,3 +1,3 @@
 document.getElementById("onClick").onclick = function () {
-	location.href = "/mode";
+	location.href = "/mode.html";
 };
